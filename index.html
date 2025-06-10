@@ -3,50 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="data analysis, journalism, portfolio, Marc Rosenthal">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
   <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/72387477?v=4">
-  <title>Tobias Wilhelm</title>
+  <link rel="canonical" href="https://yourdomain.com">
+  <title>Marc Rosenthal</title>
+  <meta name="description" content="Marc Rosenthal's personal portfolio — combining data, writing, and technology.">
+  <meta name="author" content="Marc Rosenthal">
+  <meta property="og:title" content="Marc Rosenthal Portfolio">
+  <meta property="og:description" content="Data-driven problem solver and storyteller.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/72387477?v=4">
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
   <style>
-.markdown-container img {
-  display: block;
-  margin: 0 auto;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
-}
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .markdown-container img {
+      display: block;
+      margin: 0 auto;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+      max-width: 100%;
+      height: auto;
+    }
 
-.markdown-container h2 {
-  font-weight: bold;
-}
+    .markdown-container {
+      transition: transform 0.2s ease-in-out;
+    }
 
-.markdown-container ul {
-  list-style-type: disc;
-  padding-left: 1.25rem;
-}
+    .markdown-container:hover {
+      transform: translateY(-5px);
+    }
 
-#particles-js {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+    .markdown-container h2 {
+      font-weight: bold;
+    }
+
+    .markdown-container ul {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    .sr-only:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: 0;
+      margin: 0;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3rem !important;
+      }
+      
+      #content-container {
+        flex-direction: column;
+      }
+      
+      #posts-container, #projects-container {
+        width: 100% !important;
+      }
+    }
+
+    @keyframes pulsate {
+      0% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+    }
+    
+    #scroll-down-btn i {
+      animation: pulsate 1.5s linear infinite;
+    }
   </style>
 </head>
 <body class="bg-white relative">
-<style>
-/* Add necessary dark mode styles for the footer */
-.dark-mode .bg-white.p-4.rounded.shadow-md.transition-colors.duration-200.hover\:bg-gray-100:hover {
-  background-color: #333333;
-}
-.dark-mode {
-  background-color: #1a1a1a;
-}
-.dark-mode footer,
-.dark-mode footer .text-gray-600 {
-  color: #f8f8f8;
-}
+  <style>
+    .dark-mode .bg-white.p-4.rounded.shadow-md.transition-colors.duration-200.hover\:bg-gray-100:hover {
+      background-color: #333333;
+    }
+    .dark-mode {
+      background-color: #1a1a1a;
+    }
+    .dark-mode footer,
+    .dark-mode footer .text-gray-600 {
+      color: #f8f8f8;
+    }
     .dark-mode .text-white,
     .dark-mode .text-black,
     .dark-mode .text-gray-900,
@@ -65,66 +146,97 @@
       box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1), 0 1px 3px rgba(255, 255, 255, 0.06);
     }
   </style>
-  <div id="particles-js"></div>
-<nav class="p-4 flex flex-wrap items-center justify-between w-full px-2 md:px-4">
-    <div>
-      <span class="text-black font-bold">wilhelm.digital</span><span class="text-black"></span>
+  
+  <noscript>
+    <style>
+      #particles-js { display: none; }
+      #content-container { opacity: 1 !important; }
+    </style>
+    <div class="p-4 bg-yellow-100 text-yellow-800">
+      For full functionality, please enable JavaScript in your browser.
     </div>
-    <button id="dark-mode-toggle" class="ml-4 p-2  text-black rounded shadow-md">🌓</button>
+  </noscript>
+
+  <div id="particles-js"></div>
+  
+  <a href="#content-container" class="sr-only focus:not-sr-only">Skip to content</a>
+  
+  <nav class="p-4 flex flex-wrap items-center justify-between w-full px-2 md:px-4">
+    <div>
+      <span class="text-black font-bold">wilhelm.digital</span>
+    </div>
+    <button id="dark-mode-toggle" class="ml-4 p-2 text-black rounded shadow-md">🌓</button>
   </nav>
+
   <div class="flex flex-col items-center justify-center min-h-screen">
     <div id="header-container" class="px-4 py-5 mt-8 space-x-4">
-      <h1 class="text-8xl font-bold mb-10">Tobias Wilhelm</h1>
-      <h2 class="text-xl mb-3">Empathic Team Manager by Day, Innovating with AI and NoCode at Night
-        <br><b>Merging Productivity and Creativity</b></h2>
-      <br>
+      <h1 class="text-8xl font-bold mb-10">Marc Rosenthal</h1>
+      <h2 class="text-xl mb-3 text-center leading-relaxed max-w-2xl mx-auto">Data-driven problem solver and storyteller. 
+        <br class="hidden md:inline" />
+        <span class="italic">Journalist turned analyst.</span> <br />
+        <span class="text-gray-500">Perpetually seeking clarity.</span>
+      </h2>
+
       <div class="flex space-x-4">
-        <a href="https://www.linkedin.com/in/tobiaswilhelm" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fab fa-linkedin"></i></a>
-        <a href="https://twitter.com/tobias_digital" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.reddit.com/user/tobias_digital" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fab fa-reddit"></i></a>
-        <a href="https://github.com/tobwil" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fab fa-github"></i></a>
-        <a href="mailto:tobias@wilhelm.digital" target="_blank" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mr4" target="_blank" aria-label="LinkedIn" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/rmarcdown" target="_blank" aria-label="GitHub" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="/resume.pdf" target="_blank" aria-label="Resume" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out">
+          <i class="fas fa-file-alt"></i>
+        </a>
+        <a href="mailto:marc.a.rosenthal@gmail.com" target="_blank" aria-label="Email" class="text-xl text-black hover:text-pink-600 transition-colors duration-200 ease-in-out">
+          <i class="fas fa-envelope"></i>
+        </a>
       </div>
     </div>
-  </div>
+  </div> 
+
   <div id="content-container" class="flex flex-col md:flex-row w-full flex-wrap mt-6 mb-20 mx-1 md:mx-0">
     <div id="posts-container" class="w-full md:w-1/3 px-4 py-5 mb-5 md:mb-0">
       <h3 class="text-2xl font-semibold mb-4"><i class="fa-solid fa-magnifying-glass"></i> Digital Endeavors</h3>
       <h4 class="text-sm italic mb-4">A collection of thoughts and findings</h4>
       <div id="posts-list" class="space-y-4">
-        <!-- Fetched Posts Markdown files will be displayed here -->
+        <div class="animate-pulse">Loading posts...</div>
       </div>
     </div>
     <div id="projects-container" class="w-full md:w-2/3 px-4 py-5 mb-5 md:mb-0">
       <h3 class="text-2xl font-semibold mb-4"><i class="fa-solid fa-code"></i> Projects</h3>
       <h4 class="text-sm italic mb-4">Discover what I do in my spare time</h4>
       <div id="projects-list" class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-wrap">
-        <!-- Fetched Projects Markdown files will be displayed here -->
+        <div class="animate-pulse">Loading projects...</div>
       </div>
     </div>
   </div>
-    <script>
-      document.getElementById("dark-mode-toggle").addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-  
-        const toggleBtn = document.getElementById("dark-mode-toggle");
-        const isDarkModeOn = document.body.classList.contains("dark-mode");
-  
-        toggleBtn.innerText = isDarkModeOn ? "☀️" : "🌓";
-      });
-    </script>
-    <div id="listening-container" class="w-full px-4 py-5">
-      <h3 class="text-2xl font-semibold mb-4"><i class="fab fa-spotify"></i> What's on my Playlist</h3>
-      <div id="listening-list" class="flex flex-wrap mx-auto md:-mx-2 md:space-x-4">
-        <!-- Fetched Listening Markdown files will be displayed here -->
-      </div>
+
+  <div id="listening-container" class="w-full px-4 py-5">
+    <h3 class="text-2xl font-semibold mb-4"><i class="fab fa-spotify"></i> What's on my Playlist</h3>
+    <div id="listening-list" class="flex flex-wrap mx-auto md:-mx-2 md:space-x-4">
+      <div class="animate-pulse">Loading music...</div>
     </div>
   </div>
+
+  <button id="scroll-down-btn" class="fixed bottom-4 left-1/2 text-black p-2 rounded shadow-md opacity-80 transition-colors duration-200 ease-in-out dark:bg-gray-800 dark:text-white">
+    <i class="fa-solid fa-v"></i>
+  </button>
+
+  <script>
+    document.getElementById("dark-mode-toggle").addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      const toggleBtn = document.getElementById("dark-mode-toggle");
+      const isDarkModeOn = document.body.classList.contains("dark-mode");
+      toggleBtn.innerText = isDarkModeOn ? "☀️" : "🌓";
+    });
+  </script>
+
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
   <script>
-      const postsList = document.getElementById('posts-list');
+    const postsList = document.getElementById('posts-list');
     const projectsList = document.getElementById('projects-list');
+    const listeningList = document.getElementById('listening-list');
     const converter = new showdown.Converter({
       simpleLineBreaks: true,
       strikethrough: true,
@@ -134,84 +246,116 @@
     const folders = ['posts', 'projects', 'listening'];
 
     async function fetchMarkdownFiles(folder) {
-      const response = await fetch(`${baseUrl}${folder}`);
-      const files = await response.json();
-      function shuffleArray(array) {
+      try {
+        const response = await fetch(`${baseUrl}${folder}`);
+        if (!response.ok) throw new Error('Network response was not ok');
+        const files = await response.json();
+        
+        function shuffleArray(array) {
           for (let i = array.length - 1; i > 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1));
-              [array[i], array[j]] = [array[j], array[i]];
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
           }
           return array;
-      }
+        }
 
-      const randomFiles = shuffleArray(files);
-      const maxVisibleItems = folder === 'posts' ? 3 : folder === 'projects' ? 5 : Infinity;
-      let itemCount = 0;
+        const randomFiles = shuffleArray(files);
+        const maxVisibleItems = folder === 'posts' ? 3 : folder === 'projects' ? 5 : Infinity;
+        let itemCount = 0;
 
-      for (const file of randomFiles) {
-        if (file.name.endsWith('.md')) {
-          const fileRes = await fetch(file.download_url);
-          const mdContent = await fileRes.text();
-          const mdWithLineBreaks = mdContent.replace(/\n/g, '  \n');
-          const htmlContent = converter.makeHtml(mdWithLineBreaks);
+        for (const file of randomFiles) {
+          if (file.name.endsWith('.md')) {
+            const fileRes = await fetch(file.download_url);
+            if (!fileRes.ok) throw new Error('Failed to load markdown file');
+            const mdContent = await fileRes.text();
+            const mdWithLineBreaks = mdContent.replace(/\n/g, '  \n');
+            const htmlContent = converter.makeHtml(mdWithLineBreaks);
 
-          const title = mdContent.split('\n')[0].replace(/^#+\s*/, '');
-          const contentWithoutTitle = mdContent.replace(/^.+\n/, '');
-          const htmlContentWithoutTitle = converter.makeHtml(contentWithoutTitle);
-          const fileCard = `
+            const title = mdContent.split('\n')[0].replace(/^#+\s*/, '');
+            const contentWithoutTitle = mdContent.replace(/^.+\n/, '');
+            const htmlContentWithoutTitle = converter.makeHtml(contentWithoutTitle);
+            const fileCard = `
               <div class="markdown-container bg-white p-4 rounded shadow-md transition-colors duration-200 hover:bg-gray-100 w-200 h-200 overflow-auto flex-none mx-2 my-2">
                 <h2 class="text-xl font-semibold mb-2">${title}</h2>
-                <div>${htmlContentWithoutTitle}</div>
+                <div>${htmlContentWithoutTitle.replace(/<img/g, '<img loading="lazy"')}</div>
               </div>
-          `;
+            `;
 
-          if (itemCount < maxVisibleItems) {
-            if (folder === 'posts') {
-              postsList.innerHTML += fileCard;
-            } else if (folder === 'projects') {
-              projectsList.innerHTML += fileCard;
-            } else if (folder === 'listening') {
-              document.getElementById('listening-list').innerHTML += fileCard;
-            }
-          } else {
-            if (folder !== 'listening') {
-              const hiddenCard = `<div class='hidden'>${fileCard}</div>`;
+            if (itemCount < maxVisibleItems) {
               if (folder === 'posts') {
-                postsList.innerHTML += hiddenCard;
+                postsList.innerHTML = fileCard + (postsList.innerHTML.includes('hidden') ? postsList.innerHTML : '');
               } else if (folder === 'projects') {
-                projectsList.innerHTML += hiddenCard;
+                projectsList.innerHTML = fileCard + (projectsList.innerHTML.includes('hidden') ? projectsList.innerHTML : '');
+              } else if (folder === 'listening') {
+                listeningList.innerHTML = fileCard + (listeningList.innerHTML.includes('hidden') ? listeningList.innerHTML : '');
+              }
+            } else {
+              if (folder !== 'listening') {
+                const hiddenCard = `<div class='hidden'>${fileCard}</div>`;
+                if (folder === 'posts') {
+                  postsList.innerHTML += hiddenCard;
+                } else if (folder === 'projects') {
+                  projectsList.innerHTML += hiddenCard;
+                }
               }
             }
+            itemCount++;
           }
-          itemCount++;
         }
+
+        if (folder !== 'listening' && itemCount > maxVisibleItems) {
+          const container = folder === 'posts' ? postsList : projectsList;
+          createShowMoreButton(container);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        const container = folder === 'posts' ? postsList : 
+                         folder === 'projects' ? projectsList : 
+                         listeningList;
+        container.innerHTML = `<p class="text-red-500">Failed to load ${folder}. Please try again later.</p>`;
       }
-
-    if (folder !== 'listening' && itemCount > maxVisibleItems) {
-      const container = folder === 'posts' ? postsList : projectsList;
-      createShowMoreButton(container);
     }
-  }
 
-        const createShowMoreButton = (container) => {
-        const button = document.createElement('button');
-        button.innerHTML = '➕ Show More';
-        button.classList.add('show-more');
-        button.style.color = 'gray'; // Set the text color to gray
-        button.style.marginTop = '10px'; // Add some margin on top
-        container.after(button);
+    const createShowMoreButton = (container) => {
+      const button = document.createElement('button');
+      button.innerHTML = '➕ Show More';
+      button.classList.add('show-more');
+      button.style.color = 'gray';
+      button.style.marginTop = '10px';
+      container.after(button);
 
-        button.addEventListener('click', () => {
-            const hiddenItems = container.querySelectorAll('.hidden');
-            hiddenItems.forEach(item => item.classList.remove('hidden'));
-            button.remove();
-        });
+      button.addEventListener('click', () => {
+        const hiddenItems = container.querySelectorAll('.hidden');
+        hiddenItems.forEach(item => item.classList.remove('hidden'));
+        button.remove();
+      });
     };
 
     folders.forEach(folder => {
-        fetchMarkdownFiles(folder);
+      fetchMarkdownFiles(folder);
     });
+
+    // Scroll down button functionality
+    const scrollDownBtn = document.getElementById('scroll-down-btn');
+    const headerContainer = document.getElementById('header-container');
+
+    const toggleScrollButtonVisibility = () => {
+      if (window.pageYOffset === 0) {
+        scrollDownBtn.style.display = 'flex';
+      } else {
+        scrollDownBtn.style.display = 'none';
+      }
+    }
+
+    scrollDownBtn.addEventListener('click', () => {
+      const yOffset = headerContainer.getBoundingClientRect().bottom + window.pageYOffset;
+      window.scrollTo({top: yOffset, behavior: 'smooth'});
+    });
+
+    window.addEventListener('scroll', toggleScrollButtonVisibility);
+    toggleScrollButtonVisibility();
   </script>
+
   <script>
     particlesJS('particles-js', {
       particles: {
@@ -318,6 +462,7 @@
       retina_detect: true
     });
   </script>
+
   <script src="https://unpkg.com/elevator.js"></script>
   <script>
     const elevator = new Elevator({
@@ -326,73 +471,31 @@
       duration: 5000,
     });
 
-const footer = document.createElement("footer");
-footer.className = "mt-8 mb-4";
-const footerContent = document.createElement("div");
-footerContent.className = "flex items-center justify-between";
-footer.appendChild(footerContent);
+    const footer = document.createElement("footer");
+    footer.className = "mt-8 mb-4";
+    const footerContent = document.createElement("div");
+    footerContent.className = "flex items-center justify-between";
+    footer.appendChild(footerContent);
 
-const copyright = document.createElement("div");
-copyright.className = "hidden md:flex";
-copyright.innerHTML = '&nbsp;&nbsp;&copy; ' + (new Date().getFullYear()) + ' Tobias Wilhelm';
-footerContent.appendChild(copyright);
+    const copyright = document.createElement("div");
+    copyright.className = "hidden md:flex";
+    copyright.innerHTML = `&nbsp;&nbsp;&copy; ${new Date().getFullYear()} Marc Rosenthal`;
+    footerContent.appendChild(copyright);
 
-const madeWith = document.createElement("div");
-madeWith.className = "hidden md:flex";
-madeWith.innerHTML = 'Imagined by Me - Realized with AI 🧠';
-footerContent.appendChild(madeWith);
+    const madeWith = document.createElement("div");
+    madeWith.className = "hidden md:flex";
+    madeWith.innerHTML = 'Created from a free online template by Tobias Wilhelm.';
+    footerContent.appendChild(madeWith);
 
-const elevatorBtnDiv = document.createElement("div");
-elevatorBtnDiv.innerHTML = 'You need an elevator ride?&nbsp;&nbsp;<i class="fas fa-elevator"></i>&nbsp;&nbsp;';
-elevatorBtnDiv.className = "text-center flex justify-center items-center cursor-pointer mt-4";
-elevatorBtnDiv.onclick = () => {
-  elevator.elevate();
-};
+    const elevatorBtnDiv = document.createElement("div");
+    elevatorBtnDiv.innerHTML = 'You need an elevator ride?&nbsp;&nbsp;<i class="fas fa-elevator"></i>&nbsp;&nbsp;';
+    elevatorBtnDiv.className = "text-center flex justify-center items-center cursor-pointer mt-4";
+    elevatorBtnDiv.onclick = () => {
+      elevator.elevate();
+    };
 
-footerContent.appendChild(elevatorBtnDiv);
-document.body.appendChild(footer);
+    footerContent.appendChild(elevatorBtnDiv);
+    document.body.appendChild(footer);
   </script>
-    <style>
-      @keyframes pulsate {
-        0% {
-          transform: scale(1);
-          opacity: 0.7;
-        }
-        50% {
-          transform: scale(1.2);
-          opacity: 1;
-        }
-        100% {
-          transform: scale(1);
-          opacity: 0.7;
-        }
-      }
-      #scroll-down-btn i {
-        animation: pulsate 1.5s linear infinite;
-      }
-    </style>
-    <button id="scroll-down-btn" class="fixed bottom-4 left-1/2 text-black p-2 rounded shadow-md opacity-80 transition-colors duration-200 ease-in-out dark:bg-gray-800 dark:text-white">
-      <i class="fa-solid fa-v"></i>
-    </button>
-    <script>
-      const scrollDownBtn = document.getElementById('scroll-down-btn');
-      const headerContainer = document.getElementById('header-container');
-
-      const toggleScrollButtonVisibility = () => {
-        if (window.pageYOffset === 0) {
-          scrollDownBtn.style.display = 'flex';
-        } else {
-          scrollDownBtn.style.display = 'none';
-        }
-      }
-
-      scrollDownBtn.addEventListener('click', () => {
-        const yOffset = headerContainer.getBoundingClientRect().bottom + window.pageYOffset;
-        window.scrollTo({top: yOffset, behavior: 'smooth'});
-      });
-
-      window.addEventListener('scroll', toggleScrollButtonVisibility);
-      toggleScrollButtonVisibility();
-    </script>
 </body>
 </html>
