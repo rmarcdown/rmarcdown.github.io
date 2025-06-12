@@ -18,7 +18,7 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/72387477?v=4">
   <meta property="og:url" content="https://yourdomain.com">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src *; script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://api.github.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;">
   <style>
     html {
       scroll-behavior: smooth;
@@ -280,7 +280,7 @@
 
             if (itemCount < maxVisibleItems) {
               if (folder === 'posts') {
-                postsList.innerHTML = fileCard + (postsList.innerHTML.includes('hidden') ? postsList.innerHTML : '');
+                postsList.innerHTML += fileCard;
               } else if (folder === 'projects') {
                 projectsList.innerHTML = fileCard + (projectsList.innerHTML.includes('hidden') ? projectsList.innerHTML : '');
               } else if (folder === 'listening') {
