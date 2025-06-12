@@ -267,10 +267,15 @@
         let itemCount = 0;
 
         for (const file of randomFiles) {
-          if (file.name.endsWith('.md')) {
-            const fileRes = await fetch(file.download_url);
-            if (!fileRes.ok) throw new Error('Failed to load markdown file');
-            const mdContent = await fileRes.text();
+            if (file.name.endsWith('.md')) {
+            let mdContent;
+            try {
+              const fileRes = await fetch(file.download_url);
+              mdContent = await fileRes.text();
+            } catch (err) {
+              console.error(`Failed to fetch ${file.download_url}:`, err);
+              continue;
+            }
             const mdWithLineBreaks = mdContent.replace(/\n/g, '  \n');
             const htmlContent = converter.makeHtml(mdWithLineBreaks);
 
