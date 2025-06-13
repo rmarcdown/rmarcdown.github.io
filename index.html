@@ -304,6 +304,11 @@
             itemCount++;
           }
         }
+    
+       if (folder !== 'listening' && itemCount > maxVisibleItems) {
+          const container = folder === 'posts' ? postsList : projectsList;
+          createShowMoreButton(container);
+        }
 
   } catch (error) {
     console.error(`❌ Failed to load ${folder}:`, error);
@@ -322,19 +327,6 @@
           }
           return array;
         }
-
-        if (folder !== 'listening' && itemCount > maxVisibleItems) {
-          const container = folder === 'posts' ? postsList : projectsList;
-          createShowMoreButton(container);
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        const container = folder === 'posts' ? postsList : 
-                         folder === 'projects' ? projectsList : 
-                         listeningList;
-        container.innerHTML = `<p class="text-red-500">Failed to load ${folder}. Please try again later.</p>`;
-      }
-    }
 
     const createShowMoreButton = (container) => {
       const button = document.createElement('button');
