@@ -22,7 +22,8 @@
   default-src 'self';
   img-src * data:;
   script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://api.github.com https://unpkg.com;
-  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;">
+  style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
+  media-src 'self' https://raw.githubusercontent.com;">
 
   <style>
     html {
@@ -247,23 +248,24 @@
     const baseUrl = "https://api.github.com/repos/rmarcdown/rmarcdown.github.io/contents/";
     const folders = ['posts', 'projects', 'listening'];
 
-    async function fetchMarkdownFiles(folder) {
+  async function fetchMarkdownFiles(folder) {
   console.log(`🔍 Attempting to fetch folder: ${baseUrl}${folder}`);
 
-  let response;
   try {
-    response = await fetch(`${baseUrl}${folder}`);
+    const response = await fetch(`${baseUrl}${folder}`);
     if (!response.ok) throw new Error(`GitHub returned status ${response.status}`);
+
+    const files = await response.json();
+    // Place your existing "for (const file of randomFiles) { ... }" loop here
+
   } catch (error) {
-    console.error(`❌ Failed to fetch folder "${folder}":`, error);
+    console.error(`❌ Failed to load ${folder}:`, error);
     const container = folder === 'posts' ? postsList :
                       folder === 'projects' ? projectsList :
                       listeningList;
     container.innerHTML = `<p class="text-red-500">Failed to load ${folder}. Please try again later.</p>`;
-    return; // Exit early so we don't try to process undefined response
   }
-
-  const files = await response.json();
+}
 
         
         function shuffleArray(array) {
